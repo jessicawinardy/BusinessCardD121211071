@@ -6,12 +6,17 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.material.icons.filled.Call
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Share
@@ -25,6 +30,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -40,44 +46,63 @@ class MainActivity : ComponentActivity() {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
-                ) {
-                    CardText("Jessica Evangeline Winardy", "Informatics Student")
+                )
+
+                {
+                    CardText("Jessica Evangeline Winardy", "Informatics Engineering Student")
                 }
             }
         }
     }
 }
 
+
 @Composable
 fun CardText(name: String, job: String, modifier: Modifier = Modifier) {
-    Column(verticalArrangement = Arrangement.Center,horizontalAlignment = Alignment.CenterHorizontally, modifier = Modifier.background(
-        Color(35,71,87)
-    )){
+    Box(
+        modifier = Modifier
+            .background(Color(199, 231, 244))
+            .fillMaxSize()
+    ) {
         Image(
-            painter = painterResource(R.drawable.android_logo),
+            painter = painterResource(R.drawable.awan),
             contentDescription = null,
-            contentScale = ContentScale.Fit,
             modifier = Modifier
-                .size(100.dp)
-                .background(Color.Black)
-                .padding(5.dp)
+                .offset(x = 55.dp, y = (-35).dp)
+                .size(300.dp)
         )
-        Text(
-            text = name,
-            fontSize = 28.sp,
-            lineHeight = 116.sp,
-            color = Color.White,
-            modifier = Modifier.padding(10.dp)
-        )
-        Text(
-            text = job,
-            fontSize = 18.sp,
-            color = Color.LightGray,
-            fontWeight = FontWeight.Bold
-        )
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center,
+            modifier = Modifier
+                .fillMaxHeight()
+                .fillMaxWidth()
+        ) {
+            Image(
+                painter = painterResource(R.drawable.foto_jes_fotor_20231017211935),
+                contentDescription = null,
+                contentScale = ContentScale.Fit,
+                modifier = Modifier
+                    .size(175.dp))
+            Text(
+                text = name,
+                fontSize = 32.sp,
+                color = Color(6, 113, 183),
+                modifier = Modifier.padding(7.dp),
+                fontFamily = FontFamily.Cursive,
+                fontWeight = FontWeight.ExtraBold
+            )
+            Text(
+                text = job,
+                fontSize = 16.sp,
+                color = Color(225, 137, 166),
+                fontWeight = FontWeight.ExtraBold
+            )
+        }
     }
-    ContactText()
-}
+        ContactText()
+    }
+
 
 @Composable
 fun ContactText(modifier: Modifier = Modifier) {
@@ -86,26 +111,28 @@ fun ContactText(modifier: Modifier = Modifier) {
             Icon(
                 Icons.Filled.Call,
                 contentDescription = "Localized description",
-                tint = Color.White,
+                tint = Color(225, 137, 166),
                 modifier = Modifier.padding(horizontal = 16.dp)
             )
             Text(
                 text = "+62-878-1631-9469",
                 fontSize = 18.sp,
-                color = Color.White
+                color = Color(6,113,183),
+                fontFamily = FontFamily.SansSerif
             )
         }
         Row(modifier = Modifier.padding(7.dp)){
             Icon(
                 Icons.Filled.Share,
                 contentDescription = "Localized description",
-                tint = Color.White,
+                tint = Color(225, 137, 166),
                 modifier = Modifier.padding(horizontal = 16.dp)
             )
             Text(
-                text = "@jessicaawinardy",
+                text = "msha.ke/jessicawinardy",
                 fontSize = 18.sp,
-                color = Color.White
+                color = Color(6,113,183),
+                fontFamily = FontFamily.SansSerif
             )
         }
 
@@ -113,13 +140,14 @@ fun ContactText(modifier: Modifier = Modifier) {
             Icon(
                 Icons.Filled.Email,
                 contentDescription = "Localized description",
-                tint = Color.White,
+                tint = Color(225, 137, 166),
                 modifier = Modifier.padding(horizontal = 16.dp)
             )
             Text(
                 text = "jessicawinardy@gmail.com",
                 fontSize = 18.sp,
-                color = Color.White
+                color = Color(6,113,183),
+                fontFamily = FontFamily.SansSerif
             )
         }
 
@@ -130,7 +158,7 @@ fun ContactText(modifier: Modifier = Modifier) {
 @Composable
 fun BusinessCardPreview() {
     BusinessCardD121211071_MobileTheme {
-        CardText("Jessica Evangeline Winardy", "Informatics Student")
+        CardText("Jessica Evangeline Winardy", "Informatics Engineering Student")
 
     }
 }
